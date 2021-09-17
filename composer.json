@@ -4,12 +4,12 @@
     "description": "Omnipay driver for Amazon Payment Services",
     "minimum-stability": "stable",
     "require": {
-        "../../../../../vendor/omnipay/common": "^3"
+        "omnipay/common": "^3.0"
     },
     "require-dev": {
         "omnipay/tests": "^3",
         "squizlabs/php_codesniffer": "^3.4",
-        "../../../../../vendor/phpunit/phpunit": "^6.0"
+        "phpunit/phpunit": "^6.0"
     },
     "keywords": [
         "omnipay",
