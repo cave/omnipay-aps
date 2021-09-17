@@ -2,7 +2,6 @@
     "name": "cave/omnipay-aps",
     "type": "library",
     "description": "Omnipay driver for Amazon Payment Services",
-    "minimum-stability": "stable",
     "require": {
         "omnipay/common": "^3.0"
     },
@@ -33,5 +32,12 @@
             "name": "cave",
             "email": "vedran.kapetanovic@gmail.com"
         }
-    ]
+    ],
+    "scripts": {
+        "test": "phpunit",
+        "check-style": "phpcs -p --standard=PSR2 src/",
+        "fix-style": "phpcbf -p --standard=PSR2 src/"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
