@@ -43,7 +43,6 @@ $response = $gateway->purchase([
     'currency' => 'AED',
     'language' => 'en',
     'customer_email' => 'test@payfort.com',
-    'signature' => '7cad05f0212ed933c9a5d5dffa31661acf2c827a',
     'order_description' => 'iPhone 6-S',
 ])->send();
 

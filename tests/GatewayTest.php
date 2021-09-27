@@ -1,6 +1,6 @@
 <?php
 
-namespace Omnipay\APS;
+namespace Omnipay\APS\Tests;
 
 use Omnipay\APS\Message\Response\AuthorizationResponse;
 use Omnipay\Stripe\Message\AuthorizeRequest;

@@ -6,6 +6,8 @@ use Omnipay\Common\Message\ResponseInterface;
 
 abstract class APSAbstractRequest extends AbstractRequest
 {
+	const DEFAULT_SHA_TYPE = 'sha256';
+
 	/**
 	 * @param mixed $data
 	 *
@@ -16,6 +18,11 @@ abstract class APSAbstractRequest extends AbstractRequest
 	{
 		try
 		{
+			// Sort array by key ascending
+			ksort($data);
+
+			$data['signature'] = $this->_createSignature($data);
+
 			$httpResponse = $this->httpClient->request(
 				'POST',
 				$this->getEndpoint(),
@@ -48,5 +55,25 @@ abstract class APSAbstractRequest extends AbstractRequest
 	protected function getEndpoint(): string
 	{
 		return $this->getTestMode() ? $this->test_endpoint : $this->live_endpoint;
+	}
+
+	/**
+	 * Creates signature used by Amazon for authorisation
+	 * @param array $data
+	 *
+	 * @return string
+	 * @throws RequestPhraseException
+	 */
+	private function _createSignature(array $data): string
+	{
+		$shaType = $this->hasParameter('sha_type') ? $this->hasParameter('sha_type') : self::DEFAULT_SHA_TYPE;
+
+		if ( ! $this->hasParameter('request_phrase'))
+			throw new RequestPhraseException('Request phrase is missing.');
+
+		// "Glue" phrase to the both sides of the payload
+		$data = implode('', $this->getParameter('request_phrase') . $data . $this->getParameter('request_phrase'));
+
+		return hash($shaType, $data);
 	}
 }

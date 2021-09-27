@@ -89,54 +89,24 @@ class Gateway extends AbstractGateway
 		return $this->createRequest(RefundRequest::class, $options);
 	}
 
-//	public function setTestMode($value = TRUE): Gateway
-//	{
-//		return $this->setParameter('testMode', $value);
-//	}
-//
-//	public function setAccessCode(string $code): Gateway
-//	{
-//		return $this->setParameter('access_code', $code);
-//	}
-//
-//	public function setMerchantId(string $id): Gateway
-//	{
-//		return $this->setParameter('merchant_identifier', $id);
-//	}
-//
-//	public function setMerchantReference(string $reference): Gateway
-//	{
-//		return $this->setParameter('merchant_reference', $reference);
-//	}
-//
-//	public function setAmount(int $amount): Gateway
-//	{
-//		return $this->setParameter('amount', $amount);
-//	}
-//
-//	public function setCurrency($value): Gateway
-//	{
-//		return $this->setParameter('currency', $value);
-//	}
-//
-//	public function setLanguage(string $language = 'en'): Gateway
-//	{
-//		return $this->setParameter('language', $language);
-//	}
-//
-//	public function setCustomerEmail(string $email): Gateway
-//	{
-//		return $this->setParameter('customer_email', $email);
-//	}
-//
-//	public function setSignature(string $signature): Gateway
-//	{
-//		return $this->setParameter('signature', $signature);
-//	}
-//
-//	public function setDescription(string $description): Gateway
-//	{
-//		return $this->setParameter('order_description', $description);
-//	}
+	/**
+	 * @param string $requestPhrase
+	 *
+	 * @return mixed
+	 */
+	public function setRequestPhrase(string $requestPhrase)
+	{
+		return $this->setParameter('request_phrase', $requestPhrase);
+	}
+
+	/**
+	 * @param string $shaType
+	 *
+	 * @return mixed
+	 */
+	public function setShaType(string $shaType)
+	{
+		return $this->setParameter('sha_type', $shaType);
+	}
 }
 
