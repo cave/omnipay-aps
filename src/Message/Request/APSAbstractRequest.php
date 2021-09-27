@@ -71,9 +71,14 @@ abstract class APSAbstractRequest extends AbstractRequest
 		if ( ! $this->hasParameter('request_phrase'))
 			throw new RequestPhraseException('Request phrase is missing.');
 
-		// "Glue" phrase to the both sides of the payload
-		$data = implode('', $this->getParameter('request_phrase') . $data . $this->getParameter('request_phrase'));
+		foreach ($data as $key => $value)
+		{
+			$shaString .= "$key=$value";
+		}
 
-		return hash($shaType, $data);
+		// "Glue" phrase to the both sides of the payload
+		$shaString = $this->getParameter('request_phrase') . $shaString . $this->getParameter('request_phrase');
+
+		return hash($shaType, $shaString);
 	}
 }
