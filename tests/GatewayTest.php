@@ -33,6 +33,10 @@ class GatewayTest extends GatewayTestCase
 	        'currency' => 'AED',
 	        'language' => 'en',
 	        'customer_email' => 'test@payfort.com',
+<<<<<<< HEAD
+=======
+	        'signature' => '7cad05f0212ed933c9a5d5dffa31661acf2c827a',
+>>>>>>> 24428a5b7399bc46a68f08187fb62fe42a45d455
 	        'order_description' => 'iPhone 6-S',
         ];
     }

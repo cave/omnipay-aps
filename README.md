@@ -32,7 +32,11 @@ The result will be a redirect to the gateway or bank.
 ```php
 use Omnipay\Omnipay;
 
+<<<<<<< HEAD
 $gateway = Omnipay::create('APS');
+=======
+$gateway = Omnipay::create('Amazon Payment Service');
+>>>>>>> 24428a5b7399bc46a68f08187fb62fe42a45d455
 
 // Send purchase request (don't get so excited... params below are just fake :))
 $response = $gateway->purchase([
