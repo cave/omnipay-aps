@@ -46,11 +46,8 @@ class Gateway extends AbstractGateway
 	{
 		return [
 			'testMode' => FALSE,
-<<<<<<< HEAD
 			'currency' => 'AED',
 			'language' => 'en',
-=======
->>>>>>> 24428a5b7399bc46a68f08187fb62fe42a45d455
 		];
 	}
 
@@ -94,7 +91,6 @@ class Gateway extends AbstractGateway
 		return $this->createRequest(RefundRequest::class, $options);
 	}
 
-<<<<<<< HEAD
 	public function setAccessCode($code)
 	{
 		return $this->setParameter('access_code', $code);
@@ -156,8 +152,6 @@ class Gateway extends AbstractGateway
 		return $this;
 	}
 
-=======
->>>>>>> 24428a5b7399bc46a68f08187fb62fe42a45d455
 	/**
 	 * @param string $requestPhrase
 	 *

@@ -21,29 +21,22 @@ abstract class APSAbstractRequest extends AbstractRequest
 			// Sort array by key ascending
 			ksort($data);
 
-			$data['signature'] = $this->_createSignature($data);
+			echo $data['signature'] = $this->_createSignature($data);
 
 			$httpResponse = $this->httpClient->request(
 				'POST',
 				$this->getEndpoint(),
 				[
-<<<<<<< HEAD
-=======
-					'Accept' => 'application/json',
->>>>>>> 24428a5b7399bc46a68f08187fb62fe42a45d455
 					'Content-type' => 'application/json',
 				],
 				json_encode($data)
 			);
 
-<<<<<<< HEAD
 			if ($httpResponse->getStatusCode() != 200)
 			{
 				throw new \Exception($httpResponse->getReasonPhrase(), $httpResponse->getStatusCode());
 			}
 
-=======
->>>>>>> 24428a5b7399bc46a68f08187fb62fe42a45d455
 			$json = $httpResponse->getBody()->getContents();
 
 			$data = !empty($json) ? json_decode($json, true) : [];
@@ -77,7 +70,6 @@ abstract class APSAbstractRequest extends AbstractRequest
 	 */
 	private function _createSignature(array $data): string
 	{
-<<<<<<< HEAD
 		unset($data['testMode']);
 		unset($data['Mode']);
 
@@ -91,22 +83,12 @@ abstract class APSAbstractRequest extends AbstractRequest
 		{
 			if (empty($value)) continue;
 
-=======
-		$shaType = $this->hasParameter('sha_type') ? $this->hasParameter('sha_type') : self::DEFAULT_SHA_TYPE;
-
-		if ( ! $this->hasParameter('request_phrase'))
-			throw new RequestPhraseException('Request phrase is missing.');
-
-		foreach ($data as $key => $value)
-		{
->>>>>>> 24428a5b7399bc46a68f08187fb62fe42a45d455
 			$shaString .= "$key=$value";
 		}
 
 		// "Glue" phrase to the both sides of the payload
 		$shaString = $this->getParameter('request_phrase') . $shaString . $this->getParameter('request_phrase');
 
-<<<<<<< HEAD
 		return hash_hmac($shaType, $shaString, $this->getParameter('request_phrase'));
 	}
 
@@ -178,8 +160,5 @@ abstract class APSAbstractRequest extends AbstractRequest
 	protected function _is_json_response($string) {
 		json_decode($string);
 		return json_last_error() === JSON_ERROR_NONE;
-=======
-		return hash($shaType, $shaString);
->>>>>>> 24428a5b7399bc46a68f08187fb62fe42a45d455
 	}
 }

@@ -7,15 +7,9 @@ class CaptureRequest extends APSAbstractRequest
 {
 	const COMMAND = 'CAPTURE';
 
-<<<<<<< HEAD
 	protected $test_endpoint = 'https://sbpaymentservices.payfort.com/FortAPI/paymentApi';
 
 	protected $live_endpoint = 'https://paymentservices.payfort.com/FortAPI/paymentApi';
-=======
-	private $test_endpoint = 'https://sbpaymentservices.payfort.com/FortAPI/paymentApi';
-
-	private $live_endpoint = 'https://paymentservices.payfort.com/FortAPI/paymentApi';
->>>>>>> 24428a5b7399bc46a68f08187fb62fe42a45d455
 
 	/**
 	 * @return mixed
@@ -23,7 +17,6 @@ class CaptureRequest extends APSAbstractRequest
 	 */
 	public function getData(): array
 	{
-<<<<<<< HEAD
 		$this->validate('access_code', 'merchant_identifier', 'merchant_reference', 'amount', 'currency', 'language');
 
 		return [
@@ -37,12 +30,6 @@ class CaptureRequest extends APSAbstractRequest
 			'language'            => $this->getParameter('language'),
 			'order_description'   => $this->getParameter('order_description'),
 			'fort_id'             => $this->getParameter('fort_id'),
-=======
-		$this->validate('access_code', 'merchant_identifier', 'merchant_reference', 'amount', 'currency', 'language', 'signature');
-
-		return [
-			'command' => self::COMMAND,
->>>>>>> 24428a5b7399bc46a68f08187fb62fe42a45d455
 		];
 	}
 

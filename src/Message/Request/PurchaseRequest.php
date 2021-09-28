@@ -15,7 +15,6 @@ class PurchaseRequest extends AbstractCheckoutRequest
 
 		return [
 			'command' => self::COMMAND,
-<<<<<<< HEAD
 			'testMode' => $this->getParameter('testMode'),
 			'access_code' => $this->getParameter('access_code'),
 			'merchant_identifier' => $this->getParameter('merchant_identifier'),
@@ -25,17 +24,11 @@ class PurchaseRequest extends AbstractCheckoutRequest
 			'language' => $this->getParameter('language'),
 			'customer_email' => $this->getParameter('customer_email'),
 			'order_description' => $this->getParameter('order_description'),
-=======
->>>>>>> 24428a5b7399bc46a68f08187fb62fe42a45d455
 		];
 	}
 
 	/**
 	 * @param array $data
-<<<<<<< HEAD
-=======
-	 *
->>>>>>> 24428a5b7399bc46a68f08187fb62fe42a45d455
 	 * @return PurchaseResponse
 	 * @throws \Omnipay\Common\Exception\InvalidResponseException
 	 */
@@ -43,8 +36,5 @@ class PurchaseRequest extends AbstractCheckoutRequest
 	{
 		return new PurchaseResponse($this, $data);
 	}
-<<<<<<< HEAD
 
-=======
->>>>>>> 24428a5b7399bc46a68f08187fb62fe42a45d455
 }
