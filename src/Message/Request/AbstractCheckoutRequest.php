@@ -1,6 +1,6 @@
 <?php namespace Omnipay\APS\Message\Request;
 
-abstract class AbstractCheckoutRequest extends APSAgit stbstractRequest
+abstract class AbstractCheckoutRequest extends APSAbstractRequest
 {
 	protected $test_endpoint = 'https://sbcheckout.payfort.com/FortAPI/paymentPage';
 
