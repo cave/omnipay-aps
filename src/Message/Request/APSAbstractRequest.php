@@ -21,7 +21,9 @@ abstract class APSAbstractRequest extends AbstractRequest
 			// Sort array by key ascending
 			ksort($data);
 
-			echo $data['signature'] = $this->_createSignature($data);
+			$this->_prepare_data($data);
+
+			$data['signature'] = $this->_createSignature($data);
 
 			$httpResponse = $this->httpClient->request(
 				'POST',
@@ -70,9 +72,6 @@ abstract class APSAbstractRequest extends AbstractRequest
 	 */
 	private function _createSignature(array $data): string
 	{
-		unset($data['testMode']);
-		unset($data['Mode']);
-
 		if (empty($this->getParameter('request_phrase')))
 			throw new RequestPhraseException('Request phrase is missing.');
 
@@ -97,7 +96,7 @@ abstract class APSAbstractRequest extends AbstractRequest
 	 *
 	 * @return mixed
 	 */
-	public function setRequestPhrase(string $requestPhrase)
+	public function setRequestPhrase($requestPhrase)
 	{
 		return $this->setParameter('request_phrase', $requestPhrase);
 	}
@@ -137,9 +136,19 @@ abstract class APSAbstractRequest extends AbstractRequest
 		return $this->setParameter('currency', $currency);
 	}
 
+	public function getCurrency($currency = 'AED')
+	{
+		return $this->getParameter('currency');
+	}
+
 	public function setLanguage($language = 'en')
 	{
 		return $this->setParameter('language', $language);
+	}
+
+	public function getLanguage()
+	{
+		return $this->getParameter('language');
 	}
 
 	public function setCustomerEmail($email)
@@ -160,5 +169,13 @@ abstract class APSAbstractRequest extends AbstractRequest
 	protected function _is_json_response($string) {
 		json_decode($string);
 		return json_last_error() === JSON_ERROR_NONE;
+	}
+
+	protected function _prepare_data(&$data)
+	{
+		unset($data['testMode']);
+		unset($data['Mode']);
+		unset($data['request_phrase']);
+		unset($data['sha_type']);
 	}
 }

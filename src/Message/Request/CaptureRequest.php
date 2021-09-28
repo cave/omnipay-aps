@@ -30,6 +30,7 @@ class CaptureRequest extends APSAbstractRequest
 			'language'            => $this->getParameter('language'),
 			'order_description'   => $this->getParameter('order_description'),
 			'fort_id'             => $this->getParameter('fort_id'),
+			'request_phrase'      => $this->getParameter('request_phrase'),
 		];
 	}
 

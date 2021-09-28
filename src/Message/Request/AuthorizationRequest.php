@@ -24,6 +24,7 @@ class AuthorizationRequest extends AbstractCheckoutRequest
 			'language'            => $this->getParameter('language'),
 			'customer_email'      => $this->getParameter('customer_email'),
 			'order_description'   => $this->getParameter('order_description'),
+			'request_phrase'      => $this->getParameter('request_phrase'),
 		];
 	}
 

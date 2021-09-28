@@ -1,1 +1,12 @@
+HTTP/2 200
+server: nginx
+date: Fri, 30 Aug 2019 17:13:47 GMT
+content-type: application/json
+vary: Accept-Encoding
+vary: Accept-Encoding
+x-powered-by: PHP/7.0.7
+cache-control: private, must-revalidate
+pragma: no-cache
+expires: -1
+
 {"command":"AUTHORIZATION","access_code":"zx0IPmPy5jp1vAz8Kpg7","merchant_identifier":"CycHZxVj","merchant_reference":"XYZ9239-yu898","amount":"10000","currency":"AED","language":"en","customer_email":"test@payfort.com","signature":"7cad05f0212ed933c9a5d5dffa31661acf2c827a","fort_id":"149295435400084008","payment_option":"VISA","eci":"ECOMMERCE","order_description":"iPhone6-S","customer_ip":"192.178.1.10","customer_name":"John","response_message":"Invalid amount.","response_code":"20064","status":"03","card_holder_name":"John Smith","expiry_date":"2105","card_number":"400555******0001"}

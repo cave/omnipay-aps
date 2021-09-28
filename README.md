@@ -32,20 +32,26 @@ The result will be a redirect to the gateway or bank.
 ```php
 use Omnipay\Omnipay;
 
-<<<<<<< HEAD
 $gateway = Omnipay::create('APS');
-=======
-$gateway = Omnipay::create('Amazon Payment Service');
->>>>>>> 24428a5b7399bc46a68f08187fb62fe42a45d455
 
-// Send purchase request (don't get so excited... params below are just fake :))
+$gateway->setTestMode(TRUE);
+$gateway->setRequestPhrase('PASS');
+
+//$gateway->setAccessCode('zx0IPmPy5jp1vAz8Kpg7')
+//	->setAmount(10000) // amount * 100
+//	->setMerchantIdentifier(123)
+//	->setMerchantReference('random')
+//	->setCustomerEmail('test@payfort.com')
+//	->setOrderDescription('iPhone 6-S');
+//	.... OR ....
+
 $response = $gateway->purchase([
     'access_code' => 'zx0IPmPy5jp1vAz8Kpg7',
+    'amount' => '10000', // amount * 100
     'merchant_identifier' => 'CycHZxVj',
     'merchant_reference' => 'XYZ9239-yu898',
-    'amount' => '10000',
-    'currency' => 'AED',
-    'language' => 'en',
+    'currency' => 'AED', // default AED
+    'language' => 'en', // default en
     'customer_email' => 'test@payfort.com',
     'order_description' => 'iPhone 6-S',
 ])->send();

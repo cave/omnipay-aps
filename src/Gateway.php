@@ -46,8 +46,6 @@ class Gateway extends AbstractGateway
 	{
 		return [
 			'testMode' => FALSE,
-			'currency' => 'AED',
-			'language' => 'en',
 		];
 	}
 
@@ -117,18 +115,23 @@ class Gateway extends AbstractGateway
 		return $this;
 	}
 
-	public function setCurrency($currency = 'AED')
+	public function setCurrency($currency)
 	{
 		$this->setParameter('currency', $currency);
 
 		return $this;
 	}
 
-	public function setLanguage($language = 'en')
+	public function setLanguage($language)
 	{
 		$this->setParameter('language', $language);
 
 		return $this;
+	}
+
+	public function getLanguage()
+	{
+		return $this->getParameter('language');
 	}
 
 	public function setCustomerEmail($email)

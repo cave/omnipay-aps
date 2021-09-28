@@ -239,20 +239,22 @@ abstract class AbstractResponse extends OmnipayAbstractResponse
 	public function __construct(RequestInterface $request, $data)
 	{
 		$this->request = $request;
-		$this->processResponse($data);
+		$this->response = $this->processResponse($data);
 	}
 
 	/**
 	 * @param $response
 	 * @throws InvalidResponseException
 	 */
-	public function processResponse($response): void
+	public function processResponse($response): array
 	{
 		if ( ! is_array($response))
 			throw new InvalidResponseException('Wrong response format.');
 
 		if (empty($response))
 			throw new InvalidResponseException('Response is empty.');
+
+		return $response;
 	}
 
 	/**
