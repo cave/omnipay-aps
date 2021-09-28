@@ -46,6 +46,8 @@ class Gateway extends AbstractGateway
 	{
 		return [
 			'testMode' => FALSE,
+			'currency' => 'AED',
+			'language' => 'en',
 		];
 	}
 
@@ -87,6 +89,67 @@ class Gateway extends AbstractGateway
 	public function refund(array $options = [])
 	{
 		return $this->createRequest(RefundRequest::class, $options);
+	}
+
+	public function setAccessCode($code)
+	{
+		return $this->setParameter('access_code', $code);
+
+		return $this;
+	}
+
+	public function setMerchantIdentifier($merchant_id)
+	{
+		return $this->setParameter('merchant_identifier', $merchant_id);
+	}
+
+	public function setMerchantReference($reference)
+	{
+		$this->setParameter('merchant_reference', $reference);
+
+		return $this;
+	}
+
+	public function setAmount($amount)
+	{
+		$this->setParameter('amount', $amount);
+
+		return $this;
+	}
+
+	public function setCurrency($currency = 'AED')
+	{
+		$this->setParameter('currency', $currency);
+
+		return $this;
+	}
+
+	public function setLanguage($language = 'en')
+	{
+		$this->setParameter('language', $language);
+
+		return $this;
+	}
+
+	public function setCustomerEmail($email)
+	{
+		$this->setParameter('customer_email', $email);
+
+		return $this;
+	}
+
+	public function setOrderDescription($description)
+	{
+		$this->setParameter('order_description', $description);
+
+		return $this;
+	}
+
+	public function setFortId($fort_id)
+	{
+		$this->setParameter('fort_id', $fort_id);
+
+		return $this;
 	}
 
 	/**
